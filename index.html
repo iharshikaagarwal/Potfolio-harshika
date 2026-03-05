@@ -1,1 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Harshika Agarwal — Data Scientist & AI Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #f7f5f2;
+  --bg2: #eeecea;
+  --ink: #111111;
+  --ink2: #444444;
+  --ink3: #888888;
+  --rule: #dedad4;
+  --accent: #1a3a5c;
+  --accent2: #2b5c8a;
+  --gold: #b8892a;
+  --gold-bg: #faf5ea;
+  --green: #1e6b4a;
+  --white: #ffffff;
+  --shadow: 0 2px 24px rgba(0,0,0,0.07);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--accent);}
 
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(247,245,242,0.97);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 7%;height:62px;
+}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--accent);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{
+  font-size:0.73rem;font-weight:500;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--ink2);text-decoration:none;
+  transition:color 0.2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);}
+
+/* HERO */
+#hero{
+  min-height:100vh;padding:0 7%;
+  display:flex;align-items:center;
+  background:var(--white);border-bottom:1px solid var(--rule);
+  position:relative;overflow:hidden;
+}
+.hero-columns{
+  position:absolute;inset:0;
+  display:grid;grid-template-columns:repeat(12,1fr);
+  padding:0 7%;pointer-events:none;
+}
+.hero-col{border-left:1px solid rgba(0,0,0,0.035);height:100%;}
+.hero-inner{position:relative;z-index:2;max-width:720px;padding-top:62px;}
+.eyebrow-tag{
+  display:inline-flex;align-items:center;gap:0.55rem;
+  font-size:0.68rem;font-weight:600;letter-spacing:3px;
+  text-transform:uppercase;color:var(--accent);
+  margin-bottom:1.75rem;
+  animation:fadeUp 0.65s 0.1s both;
+}
+.e-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:blink 2.5s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.35;}}
+.hero-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.8rem,8.5vw,7rem);
+  font-weight:600;line-height:0.9;color:var(--ink);
+  letter-spacing:-2px;margin-bottom:1.5rem;
+  animation:fadeUp 0.65s 0.2s both;
+}
+.hero-name em{color:var(--accent);font-style:normal;display:block;}
+.hero-sub{
+  font-size:1rem;color:var(--ink2);font-weight:400;
+  margin-bottom:1rem;line-height:1.5;
+  animation:fadeUp 0.65s 0.3s both;
+}
+.hero-desc{
+  font-size:0.93rem;color:var(--ink3);line-height:1.9;
+  max-width:540px;margin-bottom:2.5rem;
+  animation:fadeUp 0.65s 0.4s both;
+}
+.hero-desc strong{color:var(--ink2);font-weight:500;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp 0.65s 0.5s both;}
+.btn{
+  display:inline-block;text-decoration:none;font-family:'Outfit',sans-serif;
+  font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  padding:0.82rem 1.9rem;transition:all 0.2s ease;cursor:pointer;border:none;
+}
+.btn-dark{background:var(--accent);color:var(--white);}
+.btn-dark:hover{background:var(--accent2);transform:translateY(-2px);}
+.btn-out{background:transparent;color:var(--accent);border:1.5px solid var(--accent);}
+.btn-out:hover{background:var(--accent);color:var(--white);transform:translateY(-2px);}
+.hero-aside{
+  position:absolute;right:7%;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;align-items:flex-end;gap:1.8rem;
+  animation:fadeLeft 0.65s 0.6s both;
+}
+.kpi{text-align:right;}
+.kpi-n{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:600;color:var(--accent);line-height:1;}
+.kpi-l{font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-top:2px;}
+.kpi-divider{width:1px;height:44px;background:var(--rule);}
+
+/* SECTIONS */
+section{padding:5.5rem 7%;}
+#about{background:var(--bg);}
+#experience{background:var(--white);}
+#projects{background:var(--bg);}
+#skills{background:var(--white);}
+#certifications{background:var(--bg);}
+#contact{background:var(--white);}
+.eyebrow{
+  display:block;font-size:0.66rem;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;
+}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.9rem,3.8vw,2.9rem);font-weight:600;
+  color:var(--ink);line-height:1.1;margin-bottom:2.8rem;
+}
+.sec-title span{color:var(--accent);}
+
+/* ABOUT */
+.about-g{display:grid;grid-template-columns:220px 1fr;gap:4.5rem;align-items:start;}
+.about-photo{
+  width:220px;aspect-ratio:3/4;
+  background:var(--bg2);border:1px solid var(--rule);
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:0.7rem;position:relative;overflow:hidden;
+}
+.photo-ph{font-size:2.8rem;opacity:0.25;}
+.photo-hint{font-size:0.68rem;color:var(--ink3);text-align:center;padding:0 1rem;line-height:1.5;}
+.photo-corner{
+  position:absolute;bottom:0;right:0;width:0;height:0;
+  border-style:solid;border-width:0 0 24px 24px;
+  border-color:transparent transparent var(--accent) transparent;
+}
+.about-p{color:var(--ink2);line-height:1.85;font-size:0.93rem;margin-bottom:0.9rem;}
+.about-p strong{color:var(--ink);font-weight:500;}
+.chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.4rem;}
+.chip{
+  font-size:0.7rem;font-weight:500;letter-spacing:0.3px;
+  padding:0.32rem 0.85rem;background:var(--gold-bg);
+  border:1px solid rgba(184,137,42,0.22);color:var(--gold);
+}
+.alinks{display:flex;gap:1.3rem;margin-top:1.8rem;flex-wrap:wrap;}
+.alink{
+  font-size:0.8rem;font-weight:500;color:var(--accent);text-decoration:none;
+  border-bottom:1px solid transparent;transition:border-color 0.2s;
+  display:flex;align-items:center;gap:0.35rem;
+}
+.alink:hover{border-color:var(--accent);}
+
+/* EXPERIENCE */
+.timeline{border-left:2px solid var(--rule);padding-left:2.5rem;}
+.ti{
+  position:relative;margin-bottom:3rem;
+  opacity:0;transform:translateY(14px);transition:all 0.45s ease;
+}
+.ti.vis{opacity:1;transform:translateY(0);}
+.tdot{
+  position:absolute;left:-2.95rem;top:6px;
+  width:13px;height:13px;border-radius:50%;
+  background:var(--white);border:2.5px solid var(--accent);
+  box-shadow:0 0 0 4px var(--bg);
+}
+.thead{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.3rem;}
+.tco{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--ink);}
+.tdate{
+  font-size:0.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--accent);background:rgba(26,58,92,0.07);padding:0.28rem 0.75rem;
+}
+.trole{font-size:0.8rem;color:var(--ink3);margin-bottom:1.1rem;}
+.tbulls{display:flex;flex-direction:column;gap:0.7rem;}
+.tbull{
+  padding:1rem 1.2rem;background:var(--bg);
+  border:1px solid var(--rule);border-left:3px solid transparent;
+  transition:all 0.2s ease;
+}
+.tbull:hover{border-left-color:var(--accent);background:var(--white);}
+.tbull-t{font-size:0.86rem;font-weight:600;color:var(--ink);margin-bottom:0.28rem;}
+.tbull-d{font-size:0.8rem;color:var(--ink2);line-height:1.65;}
+.tbull-l{
+  display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:1.2px;
+  text-transform:uppercase;color:var(--accent);text-decoration:none;
+  margin-top:0.5rem;border-bottom:1px solid transparent;transition:border-color 0.2s;
+}
+.tbull-l:hover{border-color:var(--accent);}
+
+/* PROJECTS */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(305px,1fr));gap:1.4rem;}
+.pc{
+  background:var(--white);border:1px solid var(--rule);padding:1.65rem;
+  position:relative;transition:all 0.25s ease;
+  opacity:0;transform:translateY(14px);
+}
+.pc.vis{opacity:1;transform:translateY(0);}
+.pc:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-4px);}
+.pc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.85rem;}
+.pc-icon{font-size:1.5rem;}
+.pbadge{
+  font-size:0.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:0.22rem 0.6rem;background:var(--accent);color:var(--white);
+}
+.pbadge.live{background:var(--green);}
+.pbadge.pypi{background:var(--gold);}
+.pc-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:0.45rem;}
+.pc-desc{font-size:0.8rem;color:var(--ink2);line-height:1.7;margin-bottom:0.85rem;}
+.ptags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.85rem;}
+.ptag{
+  font-size:0.65rem;padding:0.18rem 0.55rem;
+  background:rgba(26,58,92,0.05);border:1px solid rgba(26,58,92,0.12);color:var(--accent2);
+}
+.plink{
+  font-size:0.68rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;
+  color:var(--accent);text-decoration:none;
+  border-bottom:1px solid var(--rule);padding-bottom:1px;transition:border-color 0.2s;
+}
+.plink:hover{border-color:var(--accent);}
+
+/* SKILLS */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1.2rem;}
+.sbox{
+  border:1px solid var(--rule);padding:1.4rem;background:var(--bg);
+  transition:border-color 0.2s;
+  opacity:0;transform:translateY(10px);
+}
+.sbox.vis{opacity:1;transform:translateY(0);}
+.sbox:hover{border-color:var(--accent);}
+.slabel{
+  font-size:0.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:0.85rem;padding-bottom:0.65rem;border-bottom:1px solid var(--rule);
+}
+.sitems{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.sitem{
+  font-size:0.76rem;padding:0.28rem 0.65rem;
+  background:var(--white);border:1px solid var(--rule);color:var(--ink2);
+  transition:all 0.2s;
+}
+.sitem:hover{border-color:var(--accent);color:var(--accent);background:rgba(26,58,92,0.04);}
+
+/* CERTIFICATIONS */
+.certgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem;}
+.ccard{
+  background:var(--white);border:1px solid var(--rule);padding:1.4rem;
+  display:flex;gap:1.1rem;align-items:flex-start;
+  transition:all 0.25s;text-decoration:none;
+  opacity:0;transform:translateY(10px);
+}
+.ccard.vis{opacity:1;transform:translateY(0);}
+.ccard:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-3px);}
+.cico{
+  width:44px;height:44px;flex-shrink:0;font-size:1.2rem;
+  background:rgba(26,58,92,0.05);border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+}
+.cname{font-size:0.88rem;font-weight:600;color:var(--ink);margin-bottom:0.22rem;}
+.cby{font-size:0.76rem;color:var(--ink3);margin-bottom:0.22rem;}
+.cdate{font-size:0.68rem;font-weight:700;letter-spacing:1px;color:var(--gold);text-transform:uppercase;}
+.cverify{
+  display:inline-block;font-size:0.66rem;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;color:var(--accent);margin-top:0.45rem;
+  border-bottom:1px solid transparent;transition:border-color 0.2s;
+}
+a.ccard:hover .cverify{border-color:var(--accent);}
+
+/* CONTACT */
+.conwrap{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start;}
+.conleft p{font-size:0.93rem;color:var(--ink2);line-height:1.85;margin-bottom:1.8rem;}
+.citems{display:flex;flex-direction:column;gap:1.1rem;}
+.citem{display:flex;gap:0.9rem;align-items:center;}
+.cico2{
+  width:40px;height:40px;flex-shrink:0;
+  background:rgba(26,58,92,0.05);border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;font-size:0.95rem;
+}
+.clabel{font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);}
+.cval{font-size:0.86rem;font-weight:500;color:var(--ink);}
+.cval a{color:var(--ink);text-decoration:none;}
+.cval a:hover{color:var(--accent);}
+.formbox{background:var(--bg);border:1px solid var(--rule);padding:2.4rem;}
+.ftitle{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;}
+.fsub{font-size:0.8rem;color:var(--ink3);margin-bottom:1.8rem;}
+.fg{margin-bottom:1.1rem;}
+.fl{display:block;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:0.42rem;}
+.fi,.fsel,.fta{
+  width:100%;background:var(--white);border:1px solid var(--rule);
+  color:var(--ink);padding:0.72rem 0.95rem;
+  font-family:'Outfit',sans-serif;font-size:0.86rem;
+  outline:none;transition:border-color 0.2s;appearance:none;
+}
+.fi:focus,.fsel:focus,.fta:focus{border-color:var(--accent);}
+.fi::placeholder,.fta::placeholder{color:var(--ink3);}
+.fsel option{background:var(--white);color:var(--ink);}
+.fta{resize:vertical;min-height:88px;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.btnsend{
+  width:100%;background:var(--accent);color:var(--white);
+  padding:0.88rem;font-family:'Outfit',sans-serif;
+  font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  border:none;cursor:pointer;transition:all 0.2s;margin-top:0.3rem;
+}
+.btnsend:hover{background:var(--accent2);}
+.btnsend:disabled{opacity:0.5;cursor:not-allowed;}
+.fmsg{display:none;margin-top:0.9rem;padding:0.7rem 1rem;font-size:0.82rem;text-align:center;}
+.fmsg.ok{display:block;background:#edfaf5;border:1px solid #a7f3d0;color:#065f46;}
+.fmsg.err{display:block;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;}
+
+/* FOOTER */
+footer{
+  background:var(--accent);padding:1.8rem 7%;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+.fname{font-family:'Cormorant Garamond',serif;color:var(--white);font-size:1.1rem;}
+.fcopy{font-size:0.72rem;color:rgba(255,255,255,0.55);}
+.flinks{display:flex;gap:1.4rem;}
+.flinks a{color:rgba(255,255,255,0.65);font-size:0.75rem;text-decoration:none;transition:color 0.2s;}
+.flinks a:hover{color:var(--white);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(18px);}to{opacity:1;transform:translateX(0);}}
+
+@media(max-width:960px){
+  .about-g,.conwrap{grid-template-columns:1fr;gap:2.5rem;}
+  .hero-aside{display:none;}
+  .frow{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  section{padding:3.5rem 5%;}
+  nav{padding:0 5%;}
+  .nav-links{gap:0.9rem;}
+  .nav-links a{font-size:0.68rem;letter-spacing:1px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo">Harshika Agarwal</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-columns" aria-hidden="true">
+    <div class="hero-col"></div><div class="hero-col"></div><div class="hero-col"></div>
+    <div class="hero-col"></div><div class="hero-col"></div><div class="hero-col"></div>
+    <div class="hero-col"></div><div class="hero-col"></div><div class="hero-col"></div>
+    <div class="hero-col"></div><div class="hero-col"></div><div class="hero-col"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="eyebrow-tag"><div class="e-dot"></div>Data Scientist &amp; AI Engineer · Ahmedabad, India</div>
+    <h1 class="hero-name">Harshika<em>Agarwal</em></h1>
+    <p class="hero-sub">Building AI that acts — not just predicts.</p>
+    <p class="hero-desc">
+      Specializing in <strong>production-grade GenAI systems</strong>, agentic frameworks, and enterprise LLM applications.
+      From published <strong>PyPI SDKs</strong> to autonomous agent pipelines and a live <strong>AWS Marketplace</strong> product — I ship real AI.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-dark">View My Work</a>
+      <a href="#contact" class="btn btn-out">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-aside">
+    <div class="kpi"><div class="kpi-n">2+</div><div class="kpi-l">PyPI Packages</div></div>
+    <div class="kpi-divider"></div>
+    <div class="kpi"><div class="kpi-n">7+</div><div class="kpi-l">AI Products Built</div></div>
+    <div class="kpi-divider"></div>
+    <div class="kpi"><div class="kpi-n">AWS</div><div class="kpi-l">Marketplace Listed</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <span class="eyebrow">Who I Am</span>
+  <h2 class="sec-title">About <span>Me</span></h2>
+  <div class="about-g">
+    <div class="about-photo">
+      <div class="photo-ph">👩‍💻</div>
+      <p class="photo-hint">Add your photo here — replace with an &lt;img&gt; tag</p>
+      <div class="photo-corner"></div>
+    </div>
+    <div>
+      <p class="about-p">I'm a <strong>Data Scientist</strong> at Summertown AI, building production-grade AI systems, LLM-powered applications, and agentic automation frameworks.</p>
+      <p class="about-p">I'm passionate about building AI that <strong>acts, not just predicts</strong> — orchestrating autonomous browser workflows, shipping multi-step agent pipelines, and deploying real products enterprises can use. My work spans the full GenAI stack: multi-model LLM routing with <strong>GPT-4, Claude, and Gemini</strong>, RAG pipelines, semantic search, and AWS-native AI infrastructure.</p>
+      <p class="about-p">I graduated with a <strong>B.Tech in Computer Science (AI)</strong> from Parul University in 2025, hold a <strong>HashiCorp Terraform Associate (004)</strong> certification, and have shipped two open-source Python packages and an <strong>AWS Marketplace</strong> AI product.</p>
+      <div class="chips">
+        <span class="chip">Agentic AI</span><span class="chip">LLM Integration</span>
+        <span class="chip">AWS Cloud</span><span class="chip">RAG Pipelines</span>
+        <span class="chip">PyPI Author</span><span class="chip">SDK Architecture</span>
+      </div>
+      <div class="alinks">
+        <a href="https://linkedin.com/in/harshikaagarwal88" target="_blank" class="alink">↗ LinkedIn</a>
+        <a href="https://github.com/iharshikaagarwal" target="_blank" class="alink">↗ GitHub</a>
+        <a href="https://aws.amazon.com/marketplace/pp/prodview-dztyjari4sfvc" target="_blank" class="alink">↗ AWS Marketplace</a>
+        <a href="mailto:iharshikaagarwal@gmail.com" class="alink">↗ Email Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <span class="eyebrow">Career</span>
+  <h2 class="sec-title">Work <span>Experience</span></h2>
+  <div class="timeline">
+
+    <div class="ti">
+      <div class="tdot"></div>
+      <div class="thead">
+        <div class="tco">Summertown AI</div>
+        <div class="tdate">Apr. 2025 — Present</div>
+      </div>
+      <div class="trole">Data Scientist · Ahmedabad, India</div>
+      <div class="tbulls">
+        <div class="tbull">
+          <div class="tbull-t">🤖 NewberryAI — Enterprise AI Toolkit (Core Contributor)</div>
+          <div class="tbull-d">Contributed to enterprise AI toolkit on PyPI enabling production workflows via Python SDK & CLI. Built AI modules for Healthcare (DDx, Medical Coding, EDI), Compliance, PDF Intelligence, NL2SQL, EDA, and Face Recognition. Integrated AWS (Rekognition, Bedrock, S3) with LangChain and LlamaIndex. Designed modular SDK architecture with CLI + Gradio interface and multimodal pipelines.</div>
+          <a href="https://pypi.org/project/newberryai/" target="_blank" class="tbull-l">View on PyPI ↗</a>
+        </div>
+        <div class="tbull">
+          <div class="tbull-t">🕹️ Mach11 — Agentic Browser (Lead, Orchestration Design)</div>
+          <div class="tbull-d">Architected a full agentic browser automation platform executing complex multi-step web tasks from a single prompt. Built using browser-use framework with Exa.ai and Parallel.ai as real-time web search APIs, and OpenAI / AWS Bedrock as the LLM backbone. Automated social media posting, HR workflows, and finance tools. Benchmarked against WebArena and WebVoyager. Represented Mach11 at IIMA Summit (Jan. 2026).</div>
+        </div>
+        <div class="tbull">
+          <div class="tbull-t">🚀 Summarize Agent — AWS Marketplace</div>
+          <div class="tbull-d">Built an AI-powered summarization agent deployed and publicly listed on AWS Marketplace by the team. Developed using CrewAI and AWS AgentCore; designed multi-step agentic workflow for intelligent document and content summarization at enterprise scale.</div>
+          <a href="https://aws.amazon.com/marketplace/pp/prodview-dztyjari4sfvc" target="_blank" class="tbull-l">View on AWS Marketplace ↗</a>
+        </div>
+        <div class="tbull">
+          <div class="tbull-t">🔧 AI Tool Web Platform</div>
+          <div class="tbull-d">Developed automated EDA engine, Face Recognition via AWS Rekognition, and Image-to-Sketch pipelines. Integrated OpenAI GPT-4, Anthropic Claude, and Google Gemini via multi-model routing; deployed on AWS with FastAPI and Docker.</div>
+        </div>
+        <div class="tbull">
+          <div class="tbull-t">🔍 Multimodal Image Search (CLIP + FAISS)</div>
+          <div class="tbull-d">Built scalable semantic image retrieval using CLIP embeddings and FAISS vector database. Designed S3 indexing pipeline and similarity ranking for multimodal search at scale.</div>
+        </div>
+        <div class="tbull">
+          <div class="tbull-t">📦 newberry-metrics — PyPI Package</div>
+          <div class="tbull-d">Published open-source Python package for monitoring AWS Bedrock LLM usage. Real-time Streamlit dashboard for token analytics, latency tracking, and cost monitoring with multi-model support and alerting.</div>
+          <a href="https://pypi.org/project/newberry-metrics/" target="_blank" class="tbull-l">View on PyPI ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ti">
+      <div class="tdot"></div>
+      <div class="thead">
+        <div class="tco">Apna Guide</div>
+        <div class="tdate">June 2024 — July 2024</div>
+      </div>
+      <div class="trole">Java Developer Intern · Remote</div>
+      <div class="tbulls">
+        <div class="tbull">
+          <div class="tbull-t">📱 Android App Development</div>
+          <div class="tbull-d">Developed multiple Android applications including an Expense Tracker and Music Player using Java and Android SDK. Gained hands-on experience with mobile app architecture and lifecycle management.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ti">
+      <div class="tdot"></div>
+      <div class="thead">
+        <div class="tco">ByteXL</div>
+        <div class="tdate">Apr. 2024 — June 2024</div>
+      </div>
+      <div class="trole">Software Development Intern · Remote</div>
+      <div class="tbulls">
+        <div class="tbull">
+          <div class="tbull-t">💻 SDE Fundamentals</div>
+          <div class="tbull-d">Strengthened core development skills including Python, JavaScript, HTML/CSS, and Data Structures & Algorithms through structured hands-on development tasks.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <span class="eyebrow">Portfolio</span>
+  <h2 class="sec-title">Featured <span>Projects</span></h2>
+  <div class="pgrid">
+    <div class="pc">
+      <div class="pc-top"><div class="pc-icon">🚀</div><span class="pbadge live">Live</span></div>
+      <div class="pc-title">Summarize Agent</div>
+      <div class="pc-desc">AI-powered summarization agent deployed on AWS Marketplace. Multi-step agentic workflow for intelligent document summarization at enterprise scale.</div>
+      <div class="ptags"><span class="ptag">CrewAI</span><span class="ptag">AWS AgentCore</span><span class="ptag">Agentic AI</span></div>
+      <a href="https://aws.amazon.com/marketplace/pp/prodview-dztyjari4sfvc" target="_blank" class="plink">AWS Marketplace ↗</a>
+    </div>
+    <div class="pc">
+      <div class="pc-top"><div class="pc-icon">🤖</div><span class="pbadge pypi">PyPI</span></div>
+      <div class="pc-title">NewberryAI SDK</div>
+      <div class="pc-desc">Enterprise AI toolkit on PyPI with modules for Healthcare, Compliance, PDF Intelligence, NL2SQL, EDA, and Face Recognition. Production SDK with CLI + Gradio interface.</div>
+      <div class="ptags"><span class="ptag">LangChain</span><span class="ptag">LlamaIndex</span><span class="ptag">AWS Bedrock</span><span class="ptag">SDK</span></div>
+      <a href="https://pypi.org/project/newberryai/" target="_blank" class="plink">View on PyPI ↗</a>
+    </div>
+    <div class="pc">
+      <div class="pc-top"><div class="pc-icon">🕹️</div><span class="pbadge">Research</span></div>
+      <div class="pc-title">Mach11 — Agentic Browser</div>
+      <div class="pc-desc">Autonomous browser platform executing complex multi-step web tasks. Built with browser-use, Exa.ai, Parallel.ai. Benchmarked on WebArena & WebVoyager. Presented at IIMA Summit.</div>
+      <div class="ptags"><span class="ptag">AutoGen</span><span class="ptag">CrewAI</span><span class="ptag">ReAct</span><span class="ptag">browser-use</span><span class="ptag">WebArena</span></div>
+    </div>
+    <div class="pc">
+      <div class="pc-top"><div class="pc-icon">📦</div><span class="pbadge pypi">PyPI</span></div>
+      <div class="pc-title">newberry-metrics</div>
+      <div class="pc-desc">Open-source Python package for monitoring AWS Bedrock LLM usage with real-time Streamlit dashboard for token analytics, latency tracking, and cost optimization.</div>
+      <div class="ptags"><span class="ptag">Streamlit</span><span class="ptag">AWS Bedrock</span><span class="ptag">Monitoring</span><span class="ptag">Open Source</span></div>
+      <a href="https://pypi.org/project/newberry-metrics/" target="_blank" class="plink">View on PyPI ↗</a>
+    </div>
+    <div class="pc">
+      <div class="pc-top"><div class="pc-icon">🔍</div></div>
+      <div class="pc-title">Multimodal Image Search</div>
+      <div class="pc-desc">Scalable semantic image retrieval using CLIP embeddings and FAISS vector database with S3 indexing pipeline and similarity ranking for multimodal search at scale.</div>
+      <div class="ptags"><span class="ptag">CLIP</span><span class="ptag">FAISS</span><span class="ptag">AWS S3</span><span class="ptag">Semantic Search</span></div>
+    </div>
+    <div class="pc">
+      <div class="pc-top"><div class="pc-icon">❤️</div></div>
+      <div class="pc-title">Healthcare ML Models</div>
+      <div class="pc-desc">ML classification models for Heart Disease Prediction & Breast Cancer Classification using scikit-learn with feature engineering and AUC-ROC evaluation.</div>
+      <div class="ptags"><span class="ptag">scikit-learn</span><span class="ptag">ML</span><span class="ptag">Python</span><span class="ptag">Healthcare AI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <span class="eyebrow">Expertise</span>
+  <h2 class="sec-title">Technical <span>Skills</span></h2>
+  <div class="sgrid">
+    <div class="sbox">
+      <div class="slabel">Languages</div>
+      <div class="sitems"><span class="sitem">Python</span><span class="sitem">SQL</span><span class="sitem">Java</span><span class="sitem">JavaScript</span><span class="sitem">HTML/CSS</span></div>
+    </div>
+    <div class="sbox">
+      <div class="slabel">AI / ML</div>
+      <div class="sitems"><span class="sitem">Machine Learning</span><span class="sitem">Deep Learning</span><span class="sitem">NLP</span><span class="sitem">Computer Vision</span><span class="sitem">EDA</span><span class="sitem">Model Benchmarking</span></div>
+    </div>
+    <div class="sbox">
+      <div class="slabel">GenAI & Agentic Stack</div>
+      <div class="sitems"><span class="sitem">OpenAI GPT-4</span><span class="sitem">Anthropic Claude</span><span class="sitem">Google Gemini</span><span class="sitem">AWS Bedrock</span><span class="sitem">LangChain</span><span class="sitem">LlamaIndex</span><span class="sitem">AutoGen</span><span class="sitem">CrewAI</span><span class="sitem">browser-use</span><span class="sitem">ReAct</span><span class="sitem">Tool Calling</span><span class="sitem">Prompt Engineering</span></div>
+    </div>
+    <div class="sbox">
+      <div class="slabel">Cloud & Infra</div>
+      <div class="sitems"><span class="sitem">AWS S3</span><span class="sitem">AWS Rekognition</span><span class="sitem">AWS Bedrock</span><span class="sitem">AWS AgentCore</span><span class="sitem">AWS IAM</span><span class="sitem">GCP</span><span class="sitem">Docker</span><span class="sitem">FastAPI</span><span class="sitem">Terraform</span></div>
+    </div>
+    <div class="sbox">
+      <div class="slabel">Vector DBs & Search</div>
+      <div class="sitems"><span class="sitem">FAISS</span><span class="sitem">CLIP Embeddings</span><span class="sitem">Semantic Search</span><span class="sitem">Similarity Ranking</span></div>
+    </div>
+    <div class="sbox">
+      <div class="slabel">Web Search & Benchmarks</div>
+      <div class="sitems"><span class="sitem">Exa.ai</span><span class="sitem">Parallel.ai</span><span class="sitem">WebArena</span><span class="sitem">WebVoyager</span><span class="sitem">OsWorld</span></div>
+    </div>
+    <div class="sbox">
+      <div class="slabel">Frameworks & Tools</div>
+      <div class="sitems"><span class="sitem">Streamlit</span><span class="sitem">Gradio</span><span class="sitem">FastAPI</span><span class="sitem">PyPI Packaging</span><span class="sitem">CLI Dev</span><span class="sitem">Git</span><span class="sitem">Android SDK</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <span class="eyebrow">Credentials</span>
+  <h2 class="sec-title">Certifications &amp; <span>Achievements</span></h2>
+  <div class="certgrid">
+    <a href="https://www.credly.com/badges/fd2a9f1f-4a06-46dd-b7c3-5924a414e946/linked_in_profile" target="_blank" class="ccard">
+      <div class="cico">🏅</div>
+      <div><div class="cname">HashiCorp Terraform Associate (004)</div><div class="cby">HashiCorp</div><div class="cdate">Certified — February 2026</div><span class="cverify">Verify on Credly ↗</span></div>
+    </a>
+    <div class="ccard">
+      <div class="cico">🎓</div>
+      <div><div class="cname">NPTEL Software Engineering</div><div class="cby">IIT Kharagpur</div><div class="cdate">Completed — 2023</div></div>
+    </div>
+    <div class="ccard">
+      <div class="cico">🎤</div>
+      <div><div class="cname">IIMA Summit — Core Contributor</div><div class="cby">IIM Ahmedabad · Mach11 Representation</div><div class="cdate">January 2026</div></div>
+    </div>
+    <a href="https://aws.amazon.com/marketplace/pp/prodview-dztyjari4sfvc" target="_blank" class="ccard">
+      <div class="cico">☁️</div>
+      <div><div class="cname">AWS Marketplace Product</div><div class="cby">Amazon Web Services · Summarize Agent</div><div class="cdate">Publicly Listed — 2025</div><span class="cverify">View Product ↗</span></div>
+    </a>
+    <a href="https://pypi.org/project/newberryai/" target="_blank" class="ccard">
+      <div class="cico">📦</div>
+      <div><div class="cname">newberryai — PyPI Package</div><div class="cby">Open Source · Python Package Index</div><div class="cdate">Published — 2025</div><span class="cverify">View on PyPI ↗</span></div>
+    </a>
+    <a href="https://pypi.org/project/newberry-metrics/" target="_blank" class="ccard">
+      <div class="cico">📊</div>
+      <div><div class="cname">newberry-metrics — PyPI Package</div><div class="cby">Open Source · Python Package Index</div><div class="cdate">Published — 2025</div><span class="cverify">View on PyPI ↗</span></div>
+    </a>
+    <div class="ccard">
+      <div class="cico">💡</div>
+      <div><div class="cname">PU-CODE Hackathon</div><div class="cby">Parul University · 36-hour event</div><div class="cdate">March 2024</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="eyebrow">Let's Talk</span>
+  <h2 class="sec-title">Get In <span>Touch</span></h2>
+  <div class="conwrap">
+    <div class="conleft">
+      <p>I'm open to full-time Data Scientist / AI Engineer roles, freelance AI projects, and research collaborations. Whether you have a project in mind or just want to connect — reach out!</p>
+      <div class="citems">
+        <div class="citem"><div class="cico2">✉️</div><div><div class="clabel">Email</div><div class="cval"><a href="mailto:iharshikaagarwal@gmail.com">iharshikaagarwal@gmail.com</a></div></div></div>
+        <div class="citem"><div class="cico2">🔗</div><div><div class="clabel">LinkedIn</div><div class="cval"><a href="https://linkedin.com/in/harshikaagarwal88" target="_blank">harshikaagarwal88</a></div></div></div>
+        <div class="citem"><div class="cico2">🐙</div><div><div class="clabel">GitHub</div><div class="cval"><a href="https://github.com/iharshikaagarwal" target="_blank">iharshikaagarwal</a></div></div></div>
+        <div class="citem"><div class="cico2">📍</div><div><div class="clabel">Location</div><div class="cval">Ahmedabad, India</div></div></div>
+      </div>
+    </div>
+    <div class="formbox">
+      <div class="ftitle">Send a Message</div>
+      <div class="fsub">Fill in the details below and I'll get back to you shortly.</div>
+      <form id="cForm">
+        <div class="frow">
+          <div class="fg"><label class="fl">Your Name *</label><input type="text" class="fi" id="fn" placeholder="John Doe" required/></div>
+          <div class="fg"><label class="fl">Your Email *</label><input type="email" class="fi" id="fe" placeholder="john@company.com" required/></div>
+        </div>
+        <div class="fg">
+          <label class="fl">Reason for Reaching Out *</label>
+          <select class="fsel" id="fr" required>
+            <option value="" disabled selected>Select a reason</option>
+            <option>Job Opportunity</option>
+            <option>Freelance / Project Collaboration</option>
+            <option>Open Source / Research</option>
+            <option>General Networking</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">How did you find me?</label>
+          <select class="fsel" id="ff">
+            <option value="" disabled selected>Select an option</option>
+            <option>LinkedIn</option><option>GitHub</option>
+            <option>AWS Marketplace</option><option>PyPI</option>
+            <option>Referral</option><option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Your Message *</label><textarea class="fta" id="fm" placeholder="Tell me about the opportunity or project..." required></textarea></div>
+        <button type="submit" class="btnsend" id="sb">Send Message →</button>
+        <div class="fmsg" id="fmsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fname">Harshika Agarwal</div>
+  <div class="fcopy">© 2025 · Data Scientist & AI Engineer</div>
+  <div class="flinks">
+    <a href="https://linkedin.com/in/harshikaagarwal88" target="_blank">LinkedIn</a>
+    <a href="https://github.com/iharshikaagarwal" target="_blank">GitHub</a>
+    <a href="https://pypi.org/project/newberryai/" target="_blank">PyPI</a>
+    <a href="mailto:iharshikaagarwal@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) setTimeout(() => e.target.classList.add('vis'), i * 65);
+    });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.ti,.pc,.sbox,.ccard').forEach(el => obs.observe(el));
+
+  // Active nav
+  const secs = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === `#${cur}`);
+    });
+  });
+
+  // Contact form via Formspree
+  // To activate: sign up free at https://formspree.io → create form → replace YOUR_FORM_ID below
+  const FORM_ID = 'YOUR_FORM_ID';
+
+  document.getElementById('cForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('sb');
+    const msg = document.getElementById('fmsg');
+    msg.className = 'fmsg';
+
+    const body = {
+      name: document.getElementById('fn').value.trim(),
+      email: document.getElementById('fe').value.trim(),
+      reason: document.getElementById('fr').value,
+      found: document.getElementById('ff').value || 'Not specified',
+      message: document.getElementById('fm').value.trim()
+    };
+
+    if (!body.name || !body.email || !body.reason || !body.message) {
+      msg.textContent = 'Please fill in all required fields.';
+      msg.className = 'fmsg err'; return;
+    }
+
+    btn.disabled = true; btn.textContent = 'Sending...';
+
+    if (FORM_ID === 'YOUR_FORM_ID') {
+      setTimeout(() => {
+        msg.textContent = "✓ Demo mode — connect Formspree to receive real emails (see code comment above).";
+        msg.className = 'fmsg ok';
+        btn.disabled = false; btn.textContent = 'Send Message →';
+        e.target.reset();
+      }, 800);
+      return;
+    }
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORM_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      if (res.ok) {
+        msg.textContent = "✓ Message sent — I'll get back to you soon!";
+        msg.className = 'fmsg ok'; e.target.reset();
+      } else { throw new Error(); }
+    } catch {
+      msg.textContent = '✗ Something went wrong. Please email me directly.';
+      msg.className = 'fmsg err';
+    }
+    btn.disabled = false; btn.textContent = 'Send Message →';
+  });
+</script>
+</body>
+</html>
